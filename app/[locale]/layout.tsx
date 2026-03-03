@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale } from 'next-intl/server';
 import "./globals.css";
-
+import i18n from "@/i18n/i18n";
+import LanguageProvider from "./LanguageProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,19 +24,20 @@ export default async function RootLayout({
   params
 }: Readonly<{
   children: React.ReactNode;
-  params: { local: "ar" | "en" };
+  params: { locale: "ar" | "en" };
 }>) {
-  const { local } = await params;
-  console.log("lang", local)
-  const isArabic = local === "ar";
+  const { locale } = await params;
 
-  setRequestLocale(local);
+  const isArabic = locale === "ar";
+
   return (
-    <html lang={local}
+    <html lang={locale}
       dir={isArabic ? "rtl" : "ltr"}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
