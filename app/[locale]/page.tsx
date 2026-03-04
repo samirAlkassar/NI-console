@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 export default function Home() {
   const { t, i18n } = useTranslation();
   return (
-    <div className="flex bg-white flex-col gap-4 min-h-[calc(100vh-28px)] items-center justify-center font-sans">
+    <div className="flex bg-white flex-col gap-4 min-h-[calc(100vh-61px)] items-center justify-center font-sans">
       <h1 className='text-black text-2xl'>
         {t('Welcome to React')}
       </h1>

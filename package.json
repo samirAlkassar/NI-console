@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/themes": "^3.3.0",
+    "@remixicon/react": "^4.9.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^25.8.13",
@@ -19,6 +20,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-i18next": "^16.5.4",
+    "remixicon": "^4.9.1",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
