@@ -1,9 +1,11 @@
+"use client";
+
 import {
   SidebarContent,
-  useSidebar,
 } from "@/components/ui/sidebar"
 import { BookOpen, Bot, Container, FlaskConical, Layers, ScrollText, Settings2, ShieldCheck, Terminal } from "lucide-react";
 import SidebarMenuGroup from "./sidebar-menu-group";
+import { useState } from "react";
 
 const quickLinks = [
   { id: "terminal", label: "Terminal", icon: Terminal },
@@ -27,12 +29,33 @@ const development = [
 ];
 
 export function SideBarItems() {
-    return (
-      <SidebarContent className="gap-2">
-        <SidebarMenuGroup label="Quick links / Shortcuts" menuItems={quickLinks}/>
-        <SidebarMenuGroup label="Admin Tools" menuItems={adminTools}/>
-        <SidebarMenuGroup label="Services" menuItems={services}/>
-        <SidebarMenuGroup label="Development" menuItems={development}/>
-      </SidebarContent>
-    )
+  const [activeSidebarTab, setActiveSidebarTab] = useState<string>("terminal")
+  return (
+    <SidebarContent className="gap-2">
+      <SidebarMenuGroup 
+        label="Quick links / Shortcuts" 
+        menuItems={quickLinks}
+        activeSidebarTab={activeSidebarTab}
+        setActiveSidebarTab={setActiveSidebarTab}
+        />
+
+      <SidebarMenuGroup 
+        label="Admin Tools" 
+        menuItems={adminTools}
+        activeSidebarTab={activeSidebarTab}
+        setActiveSidebarTab={setActiveSidebarTab}/>
+
+      <SidebarMenuGroup 
+        label="Services" 
+        menuItems={services}
+        activeSidebarTab={activeSidebarTab}
+        setActiveSidebarTab={setActiveSidebarTab}/>
+
+      <SidebarMenuGroup 
+        label="Development"
+        menuItems={development}
+        activeSidebarTab={activeSidebarTab}
+        setActiveSidebarTab={setActiveSidebarTab}/>
+    </SidebarContent>
+  )
 }

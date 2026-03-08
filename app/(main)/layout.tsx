@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./styles/globals.css";
-import LanguageProvider from "./LanguageProvider";
+import "../styles/globals.css";
+import LanguageProvider from "../LanguageProvider";
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/main-sidebar/app-sidebar"
 import AppHeader from "@/components/main-header/app-header";
+import { Toaster } from "@/components/ui/sonner"
+import getCookies from "@/actions/getCookies";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,26 +25,25 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: "ar" | "en" };
 }>) {
-  const { locale } = await params;
-  const isArabic = locale === "ar";
+  const locale = await getCookies("locale")
+  const isRTL = locale?.value === "ar";
 
   return (
-    <html lang={locale}
-      dir={isArabic ? "rtl" : "ltr"}>
+    <html lang={locale?.value}
+      dir={isRTL ? "rtl" : "ltr"}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LanguageProvider>
           <SidebarProvider>
-            <AppSidebar />
+            <AppSidebar dir={isRTL ? "rtl" : "ltr"}/>
 
             <main className="w-full">
-              <AppHeader />
+              <AppHeader/>
               {children}
+              <Toaster />
             </main>
           </SidebarProvider>
         </LanguageProvider>

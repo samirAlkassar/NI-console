@@ -11,10 +11,10 @@ import MainSidebarHeader from "./main-sidebar-header";
 import { twMerge } from "tailwind-merge";
 
 
-export function AppSidebar() {
+export function AppSidebar({dir}:{dir: "rtl" | "ltr"}) {
   const {state} = useSidebar();
   return (
-    <Sidebar collapsible="icon" className={twMerge(state === "collapsed" ? "p-0" : "p-2", "bg-sidebar")}>
+    <Sidebar dir={dir} side={dir === "rtl" ? "right" : "left"} collapsible="icon" className={twMerge(state === "collapsed" ? "p-0" : "p-2", "bg-sidebar")}>
       <MainSidebarHeader />
       <SideBarItems />
       <MainSiebarFooter />

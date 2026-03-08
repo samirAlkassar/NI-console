@@ -9,9 +9,9 @@ import Image from "next/image";
 export default function MainSidebarHeader() {
     const {state} = useSidebar();
     return (
-    <SidebarHeader className="p-0">
-        <div className="flex items-center gap-2 p-1.5">
-          <div className="flex rounded-none h-8 w-8 items-center justify-center bg-card-foreground shrink-0">
+    <SidebarHeader className="p-2">
+        <div className="flex items-center gap-2 px-1">
+          <div className="flex rounded-none h-6 w-6 items-center justify-center bg-card-foreground shrink-0">
             <Image
               src="/brand/NI-Mark.svg"
               alt="NexusIgnite"
