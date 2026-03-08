@@ -85,7 +85,7 @@ export default function Login () {
                                         id="form-rhf-demo-orgId"
                                         aria-invalid={fieldState.invalid}
                                         placeholder="Org Id"
-                                        autoComplete="off"
+                                        autoComplete="on"
                                     />
                                     {fieldState.invalid && (
                                         <FieldError errors={[fieldState.error]} />
@@ -107,7 +107,7 @@ export default function Login () {
                                         id="form-rhf-demo-email"
                                         aria-invalid={fieldState.invalid}
                                         placeholder="m@example.com"
-                                        autoComplete="off"
+                                        autoComplete="on"
                                         type="email"
                                     />
                                     {fieldState.invalid && (
@@ -132,7 +132,7 @@ export default function Login () {
                                         {...field}
                                         id="form-rhf-demo-password"
                                         aria-invalid={fieldState.invalid}
-                                        placeholder="m@example.com"
+                                        placeholder=""
                                         autoComplete="off"
                                         type="password"
                                     />
@@ -165,8 +165,8 @@ export default function Login () {
                                     <img src="/icons/socials/Meta icon.svg" alt="app-social-button" />
                                 </Button>
                             </div>
-                            <span className="font-normal text-sm leading-5 tracking-normal text-center">Don't have an account?
-                                <Link href={"#"} className="font-normal text-sm leading-5 tracking-normal underline"> Sign up</Link>
+                            <span className="font-normal text-sm leading-5 tracking-normal text-center text-muted-foreground">Don't have an account?
+                                <Link href={"/register"} className="underline"> Sign up</Link>
                             </span>
                         </FieldGroup>
                     </CardFooter>
