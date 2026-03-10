@@ -37,7 +37,7 @@ export function SideMenuButton({ variant, size, id, className, onClick, active, 
   return (
     <SidebarMenuButton
       className={twMerge(sideMenuButtonClasses({ variant, size }),
-      active === id ? "bg-muted" : "" ,className)}
+      active === id ? "bg-muted-background" : "" ,className)}
       onClick={onClick}
       disabled={disabled}>
       {children}

@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import LanguageProvider from "../LanguageProvider";
 import { Toaster } from "@/components/ui/sonner"
 import getCookies from "@/actions/getCookies";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,14 +31,21 @@ export default async function RootLayout({
 
   return (
     <html lang={locale?.value}
-      dir={isRTL ? "rtl" : "ltr"}>
+      dir={isRTL ? "rtl" : "ltr"}
+      suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LanguageProvider>
-            <main className="w-full">
-              {children}
-              <Toaster />
-            </main>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+              <main className="w-full">
+                {children}
+                <Toaster />
+              </main>
+            </ThemeProvider>
         </LanguageProvider>
       </body>
     </html>

@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 
 export default function AppFooter () {
     return (
-        <Card className='bg-background w-full sticky bottom-0'>
+        <div className='bg-card w-full flex flex-col gap-6 rounded-xl border-t py-4 text-card-foreground sticky bottom-0'>
           <CardHeader>
             <CardTitle>
               Save All Changes
@@ -17,6 +17,6 @@ export default function AppFooter () {
             <Button>Save All Changes</Button>
             <Button variant={"outline"}>Cancel</Button>
           </CardContent>
-        </Card>
+        </div>
     )
 }

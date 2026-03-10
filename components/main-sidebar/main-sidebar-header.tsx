@@ -21,7 +21,7 @@ export default function MainSidebarHeader() {
           </div>
 
           {state !== "collapsed" && (
-            <span className="font-bold text-base leading-6 tracking-normal">
+            <span className="font-bold text-base leading-6 tracking-normal animate-text-fade min-w-35.5">
               NexusIgnite Console
             </span>
           )}

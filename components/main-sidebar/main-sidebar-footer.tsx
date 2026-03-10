@@ -23,7 +23,7 @@ export default function MainSiebarFooter () {
                     />
                     {state !== "collapsed" && 
                     <>
-                        <div className="flex flex-col gap-0.5 group-data-[collapsible=icon]:hidden min-w-0 w-full">
+                        <div className="flex flex-col gap-0.5 group-data-[collapsible=icon]:hidden w-full animate-text-fade min-w-35.5">
                             <span className="text-sm leading-5 font-normal tracking-normal text-sidebar-foreground">John Doe</span>
                             <span className="text-xs leading-4 font-normal tracking-normal text-sidebar-foreground">john@example.com</span>
                         </div>

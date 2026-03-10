@@ -7,6 +7,7 @@ import { AppSidebar } from "@/components/main-sidebar/app-sidebar"
 import AppHeader from "@/components/main-header/app-header";
 import { Toaster } from "@/components/ui/sonner"
 import getCookies from "@/actions/getCookies";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,19 +34,25 @@ export default async function RootLayout({
 
   return (
     <html lang={locale?.value}
-      dir={isRTL ? "rtl" : "ltr"}>
+      dir={isRTL ? "rtl" : "ltr"}
+      suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <LanguageProvider>
-          <SidebarProvider>
-            <AppSidebar dir={isRTL ? "rtl" : "ltr"}/>
-
-            <main className="w-full">
-              <AppHeader/>
-              {children}
-              <Toaster />
-            </main>
-          </SidebarProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+            <SidebarProvider>
+              <AppSidebar dir={isRTL ? "rtl" : "ltr"}/>
+              <main className="w-full">
+                <AppHeader/>
+                {children}
+                <Toaster />
+              </main>
+            </SidebarProvider>
+          </ThemeProvider>
         </LanguageProvider>
       </body>
     </html>

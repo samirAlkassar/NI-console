@@ -6,7 +6,7 @@ import {
   SidebarMenu,
 } from "@/components/ui/sidebar"
 import { ComponentType } from "react";
-import { SideMenuButton, SideMenuButtonContent } from "../SideMenuButton";
+import { SideMenuButton, SideMenuButtonContent } from "../side-menu-button";
 
 
 interface SidebarMneuGroupType {

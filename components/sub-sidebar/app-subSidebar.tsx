@@ -1,5 +1,5 @@
 import { LayoutDashboard, Users, UsersRound, Shield, FileText, Layers, ScrollText, Key, Layers3 } from "lucide-react";
-import { SideMenuButton, SideMenuButtonContent } from "../SideMenuButton";
+import { SideMenuButton, SideMenuButtonContent } from "../side-menu-button";
 import { useState } from "react";
 
 
