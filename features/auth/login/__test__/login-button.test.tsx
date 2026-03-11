@@ -12,6 +12,9 @@ describe("login submit button component", () => {
     expect(loginButton).toBeInTheDocument()
     expect(loginButton).toBeEnabled()
 
-    await userEvent.click(loginButton)
+    await userEvent.click(loginButton);
+    expect(screen.getByText(/org id must be at least 5 characters/i)).toBeInTheDocument()
+    expect(screen.getByText(/invalid email address/i)).toBeInTheDocument()
+    expect(screen.getByText(/password must be at least 8 characters/i)).toBeInTheDocument()    
   })
 })

@@ -9,12 +9,12 @@ export const loginSchema = z.object({
   email: z
     .string()
     .email("Invalid email address")
-    .max(100),
+    .max(100, "Email must be at most 100 characters"),
 
   password: z
     .string()
-    .min(8, "Password must be at least 8 characters.")
-    .max(100),
+    .min(8, "Password must be at least 8 characters")
+    .max(100, "Password must be at most 100 characters")
 })
 
 export type LoginSchema = z.infer<typeof loginSchema>

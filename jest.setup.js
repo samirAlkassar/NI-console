@@ -1,28 +1,19 @@
 // jest.setup.js
-import '@testing-library/jest-dom'
+const { TextEncoder, TextDecoder } = require('util');
+const { ReadableStream, TransformStream, WritableStream } = require('stream/web');
 
-// import 'cross-fetch/polyfill' // polyfill fetch, Response, Headers
-// import { TextEncoder, TextDecoder } from 'util'
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+global.ReadableStream = ReadableStream;
+global.TransformStream = TransformStream;
+global.WritableStream = WritableStream;
+global.BroadcastChannel = class BroadcastChannel {
+  constructor(name) { this.name = name; }
+  postMessage() { }
+  close() { }
+  addEventListener() { }
+  removeEventListener() { }
+};
 
-// // Polyfill TextEncoder/TextDecoder for Node
-// if (typeof global.TextEncoder === 'undefined') {
-//   global.TextEncoder = TextEncoder
-// }
-// if (typeof global.TextDecoder === 'undefined') {
-//   global.TextDecoder = TextDecoder
-// }
-
-// // Polyfill BroadcastChannel for MSW
-// if (typeof global.BroadcastChannel === 'undefined') {
-//   class PolyfillBroadcastChannel {
-//     constructor(name) {
-//       this.name = name
-//       this.onmessage = null
-//     }
-//     postMessage(msg) {
-//       // no-op
-//     }
-//     close() {}
-//   }
-//   global.BroadcastChannel = PolyfillBroadcastChannel
-// }
+require('cross-fetch/polyfill');
+require('@testing-library/jest-dom');

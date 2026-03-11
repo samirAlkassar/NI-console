@@ -1,0 +1,22 @@
+FAIL features/auth/login/__test__/login-form.test.tsx
+  ● Test suite failed to run
+
+    ReferenceError: WritableStream is not defined
+
+      10 | import { setupServer } from 'msw/node'
+      11 |
+    > 12 | const server = setupServer(
+         |              ^
+      13 |   http.post('/api/auth/login', () => {
+      14 |     return HttpResponse.json({ success: true })
+      15 |   })
+
+      at Object.<anonymous> (node_modules/msw/src/core/sse.ts:749:40)
+      at Object.<anonymous> (node_modules/msw/src/core/index.ts:27:8)
+      at Object.<anonymous> (features/auth/login/__test__/login-form.test.tsx:12:14)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.204 s
+Ran all test suites matching login-form.test.tsx.
